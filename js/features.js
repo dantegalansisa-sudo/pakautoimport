@@ -210,7 +210,7 @@
 
   /* ─── INIT ─── */
   document.addEventListener('DOMContentLoaded', () => {
-    injectDemoNotice();
+    // injectDemoNotice(); // replaced by hero__disclaimer
     injectCookiesBanner();
   });
 

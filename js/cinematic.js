@@ -83,17 +83,35 @@
   const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobileMenu');
   if (burger && mobileMenu) {
+    function closeMenu() {
+      burger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
     burger.addEventListener('click', () => {
-      burger.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      const isOpen = mobileMenu.classList.contains('active');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        burger.classList.add('active');
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
     });
+
     mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        burger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      });
+      a.addEventListener('click', closeMenu);
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Cerrar al hacer click en el fondo del overlay (fuera del panel de links)
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) closeMenu();
     });
   }
 

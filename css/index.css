@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════
    MATOS DEALER · CINEMATIC INDEX STYLES v6
    Palette: rhythmic DARK ↔ LIGHT alternation
 ═══════════════════════════════════════════ */
@@ -19,134 +19,297 @@
   --ink-300: #6b5d44;
 }
 
+/* ─── NAVBAR OVERRIDES (index.html only) ─── */
+.navbar {
+  position: absolute;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+  z-index: 9999;
+}
+.navbar.scrolled { background: transparent; box-shadow: none; }
+.navbar__logo { color: #1A1A1A; }
+.navbar__logo span { color: var(--bronze-500); }
+.navbar__burger { display: flex; }
+.navbar__burger span { background: #1A1A1A; }
+
 /* ═══════════════════════════════════════════
-   HERO — VIDEO CINEMATIC
+   HERO — EDITORIAL LIGHT v2
 ═══════════════════════════════════════════ */
 .hero {
   position: relative;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background: var(--ink-900);
-  isolation: isolate;
-}
-
-.hero__video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 1;
-}
-
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg,
-      rgba(14,13,11,0.55) 0%,
-      rgba(14,13,11,0.35) 30%,
-      rgba(14,13,11,0.55) 70%,
-      rgba(14,13,11,0.85) 100%
-    ),
-    radial-gradient(ellipse 70% 50% at 25% 50%, rgba(14,13,11,0.55) 0%, transparent 60%);
+  background: #F4F2EF;
 }
 
 .hero__inner {
   position: relative;
   z-index: 5;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 140px 56px 130px;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  padding-top: 80px;
+  padding-bottom: 60px;
 }
 
-.hero__text { max-width: 680px; position: relative; }
+/* ─── LEFT COLUMN (45%) ─── */
+.hero__text {
+  flex: 0 0 45%;
+  padding: 0 48px 0 60px;
+}
 
-.hero__eyebrow {
+.hero__badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-heading);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 2.5px;
+  gap: 7px;
+  font-family: 'Inter', 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--champagne-100);
-  padding: 8px 14px 8px 12px;
-  background: rgba(255,255,255,0.08);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(244,239,230,0.18);
-  border-radius: 100px;
-  margin-bottom: 32px;
-  opacity: 0;
-  transform: translateY(12px);
-  animation: heroFadeUp 0.8s ease 0.4s forwards;
+  color: #1A1A1A;
+  background: rgba(26,26,26,0.07);
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin-bottom: 28px;
 }
-
-.hero__pulse {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--bronze-500);
-  box-shadow: 0 0 0 0 rgba(184,146,63,0.6);
-  animation: heroPulse 2s ease-in-out infinite;
-}
-@keyframes heroPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(184,146,63,0.55); }
-  70%  { box-shadow: 0 0 0 10px rgba(184,146,63,0); }
-  100% { box-shadow: 0 0 0 0 rgba(184,146,63,0); }
-}
+.hero__badge svg { flex-shrink: 0; }
 
 .hero__title {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.6rem, 6vw, 5.5rem);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 6vw, 72px);
   font-weight: 300;
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-  color: var(--champagne-100);
-  margin-bottom: 32px;
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeUp 1s cubic-bezier(0.22,1,0.36,1) 0.55s forwards;
-  text-shadow: 0 2px 30px rgba(0,0,0,0.4);
+  line-height: 1.05;
+  color: #1A1A1A;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
 }
 .hero__title em {
   font-style: italic;
-  font-weight: 400;
-  color: var(--bronze-500);
+  font-weight: 300;
+  color: #C0392B;
 }
 
-.hero__desc {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
+.hero__sub {
+  font-family: 'Inter', 'Outfit', sans-serif;
+  font-size: 18px;
   font-weight: 400;
-  line-height: 1.65;
-  color: rgba(244,239,230,0.82);
-  max-width: 480px;
-  margin-bottom: 44px;
-  opacity: 0;
-  transform: translateY(16px);
-  animation: heroFadeUp 0.9s ease 0.8s forwards;
-  text-shadow: 0 1px 18px rgba(0,0,0,0.4);
+  color: #3A3A3A;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  margin-top: 12px;
+  margin-bottom: 36px;
+}
+.hero__sub::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: #C0392B;
+  margin-bottom: 12px;
 }
 
-.hero__cta {
+/* ─── SEARCH BAR ─── */
+.hero__search {
   display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(16px);
-  animation: heroFadeUp 0.9s ease 1s forwards;
+  background: #FFFFFF;
+  border-radius: 6px;
+  border: 0.5px solid #E0DDD8;
+  max-width: 440px;
+  overflow: hidden;
 }
 
-/* ─── CINEMA BUTTONS ─── */
+.hero__select {
+  flex: 1;
+  padding: 14px 12px;
+  font-family: 'Inter', 'Outfit', sans-serif;
+  font-size: 12px;
+  color: #1A1A1A;
+  background: transparent;
+  border: none;
+  border-right: 0.5px solid #E0DDD8;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  min-width: 0;
+}
+.hero__select--last { border-right: none; }
+
+.hero__search-btn {
+  background: #1A1A1A;
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.hero__search-btn:hover { background: #333; }
+
+/* ─── CATEGORIES ─── */
+.hero__cats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-family: 'Inter', 'Outfit', sans-serif;
+  font-size: 11px;
+}
+.hero__cats-dash { color: #CCC; }
+.hero__cats-sep  { color: #CCC; }
+.hero__cat {
+  color: #888;
+  cursor: pointer;
+  border-bottom: 0.5px solid #CCC;
+  padding-bottom: 1px;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+.hero__cat:hover { color: #1A1A1A; border-bottom-color: #888; }
+
+/* ─── RIGHT COLUMN (55%) — slider ─── */
+.hero__visual {
+  flex: 0 0 55%;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Circle centered at ~62% of total viewport — más al centro del hero */
+.hero__slider-wrap {
+  position: absolute;
+  top: 50%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+}
+
+.hero__circle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #C0392B;
+}
+
+/* ─── CARS — atraviesan el círculo 180% del diámetro ─── */
+.hero__cars {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 540px;   /* 180% de 300px → sobresale 120px a cada lado */
+  height: 300px;
+  z-index: 2;
+  overflow: hidden; /* clips drive animation within car container */
+}
+
+@keyframes carExitDrive {
+  from { transform: translateX(0);    opacity: 1; }
+  to   { transform: translateX(120%); opacity: 0; }
+}
+
+@keyframes carEnterDrive {
+  from { transform: translateX(-120%); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+.hero__car {
+  position: absolute;
+  width: 100%;
+  bottom: 4%;
+  left: 0;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateX(0);
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__car--active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero__car--exit {
+  animation: carExitDrive 0.6s cubic-bezier(0.4, 0, 0.8, 0.2) forwards;
+}
+
+.hero__car--enter {
+  animation: carEnterDrive 0.7s cubic-bezier(0.2, 0, 0.3, 1) forwards;
+}
+
+/* ─── DOTS ─── */
+.hero__dots {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #CCC;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s;
+  flex-shrink: 0;
+}
+
+.hero__dot--active { background: #1A1A1A; }
+
+/* ─── SOCIAL ICONS (abs left) ─── */
+.hero__socials {
+  position: absolute;
+  left: 20px;
+  top: 75%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.hero__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+.hero__social:hover { opacity: 0.75; }
+
+/* ─── DISCLAIMER (bottom bar) ─── */
+.hero__disclaimer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 0.5px solid rgba(26,26,26,0.08);
+  padding: 10px 40px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', 'Outfit', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: #AAAAAA;
+  z-index: 5;
+  text-transform: uppercase;
+}
+
+/* ─── CINEMA BUTTONS (mobile menu) ─── */
 .btn-cinema {
   position: relative;
   display: inline-flex;
@@ -206,56 +369,6 @@
   background: var(--bronze-500);
   border-color: var(--bronze-500);
   color: var(--champagne-100);
-}
-
-/* ─── HERO SCROLL ─── */
-.hero__scroll {
-  position: absolute;
-  left: 56px;
-  bottom: 40px;
-  z-index: 5;
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  font-family: var(--font-heading);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(244,239,230,0.7);
-  cursor: pointer;
-  text-decoration: none;
-  opacity: 0;
-  animation: heroFadeUp 0.9s ease 1.2s forwards;
-  transition: color 0.3s ease;
-}
-.hero__scroll:hover { color: var(--champagne-100); }
-
-.hero__scroll-line {
-  position: relative;
-  display: block;
-  width: 64px;
-  height: 1px;
-  background: rgba(244,239,230,0.3);
-  overflow: hidden;
-}
-.hero__scroll-line::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  width: 30%;
-  background: var(--champagne-100);
-  animation: scrollLine 2.4s cubic-bezier(0.65,0,0.35,1) infinite;
-}
-@keyframes scrollLine {
-  0%   { transform: translateX(-100%); }
-  60%  { transform: translateX(330%); }
-  100% { transform: translateX(330%); }
-}
-
-@keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ═══════════════════════════════════════════
@@ -1082,3 +1195,6 @@
     text-align: center;
   }
 }
+
+.navbar__links { display: none; }
+.navbar__cta { display: none; }
